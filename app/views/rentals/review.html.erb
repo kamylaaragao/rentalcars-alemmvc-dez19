@@ -10,7 +10,7 @@
 <p><%= Rental.human_attribute_name('price_projection') %>: <%= number_to_currency(@rental.calculate_price_projection) %>
 <% if current_user.admin? || @rental.subsidiary == current_user.subsidiary %>
   <ul>
-    <%= form_with url: confirm_rental_path, method: :post, data: { remote: false } do |f| %>
+    <%= form_with url: confirm_rental_path(@rental), method: :post, data: { remote: false } do |f| %>
       <h3>Carros</h3>
       <div class="cards">
         <%= f.collection_radio_buttons(:car_id, @cars, :id, :license_plate) do |r| %>

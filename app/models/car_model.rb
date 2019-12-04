@@ -8,3 +8,4 @@ class CarModel < ApplicationRecord
   validates :year, presence: true
   validates :car_options, presence: true
 end
+

@@ -13,4 +13,4 @@
 <h2>Preço final: <%= number_to_currency(@rental.calculate_final_price) %></h2>
 <p><%= Rental.human_attribute_name('license_plate') %>: <%= @rental.car.license_plate %><p>
 
-<%= link_to 'Finalizar locação', finalize_rental_path, method: :post, class: 'btn btn-primary' %>
+<%= link_to 'Finalizar locação', finalize_rental_path(@rental), method: :post, class: 'btn btn-primary' %>
