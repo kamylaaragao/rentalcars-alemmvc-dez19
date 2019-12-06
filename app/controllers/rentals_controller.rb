@@ -66,8 +66,7 @@ class RentalsController < ApplicationController
 
     rental.in_review! if rental.scheduled?
     @cars = rental.available_cars.where(subsidiary: current_subsidiary)
-    @addons = Addon.joins(:addon_items)
-                    .where(addon_items: { status: :available }).group(:id)
+    @addons = AvailableAddonsQuery.call
     @rental = RentalPresenter.new(rental, current_user)
   end
 
